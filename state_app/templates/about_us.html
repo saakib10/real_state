@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Page Title
+		============================================= -->
+		<section id="page-title" class="page-title-parallax page-title-dark include-header back" style="padding: 250px 0; background-image: url('/images/project/team2.jpg'); background-size: cover; background-position: center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
+
+			<div class="container clearfix">
+				<h1>About Us</h1>
+				<span>Everything you need to know about our Company</span>
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+				<div class="row align-items-stretch">
+
+					<div class="col-md-5 col-padding min-vh-75" style="background: url('/images/project/side4.jpg') center center no-repeat; background-size: cover;"></div>
+
+					<div class="col-md-7 col-padding">
+						<div>
+							<div class="heading-block">
+								<h3>WHO WE ARE</h3>
+							</div>
+
+							<div class="row col-mb-50">
+
+								<div class="col-lg-12" style="text-align: justify;">
+									<p>Employment respond committed meaningful fight against oppression social challenges rural legal aid governance. Meaningful work, implementation, process cooperation, campaign inspire.</p>
+									<p>Advancement, promising development John Lennon, our ambitions involvement underprivileged billionaire philanthropy save the world transform. Carbon rights maintain healthcare emergent, implementation inspire social change solve clean water livelihoods.</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row align-items-stretch bottommargin-lg">
+
+					<div class="col-md-5 col-padding min-vh-75 order-md-last" style="background: url('/images/project/side5.jpg') center center no-repeat; background-size: cover;"></div>
+
+					<div class="col-md-7 col-padding" style="background-color: #F5F5F5;">
+						<div>
+							<div class="heading-block">
+								<h3>Our Vision And Mission</h3>
+							</div>
+
+							<div class="row col-mb-50">
+
+								<div class="col-lg-12" style="text-align: justify;">
+									<p>Achieve Customer's satisfaction as well as confidence by handover quality product as our commitment within specific time frame and also believes in satisfaction of backward & forward linkage.</p>
+									<p>“Loyal brand to the Stakeholders.”</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="container clearfix">
+
+					<div class="clear"></div>
+
+					<div class="heading-block center">
+						<h4>Our Clients</h4>
+					</div>
+
+					<ul class="clients-grid grid-2 grid-sm-3 grid-md-6 mb-0">
+                        {% for x in clients %}
+						<li class="grid-item"><a href="#"><img src="{{ x.imagesURL }}" alt="Clients"></a></li>
+						{% endfor %}
+					</ul>
+
+				</div>
+
+				<div class="section footer-stick">
+
+					<h4 class="text-uppercase center">What <span>Clients</span> Say?</h4>
+
+					<div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
+						<div class="flexslider">
+							<div class="slider-wrap">
+                                {% for x in clients %}
+                                {% if x.testimonial %}
+								<div class="slide">
+									<div class="testi-image">
+										<a href="#"><img src="{{ x.imagesURL }}" alt="Customer Testimonails"></a>
+									</div>
+									<div class="testi-content">
+										<p>{{ x.testimonial }}</p>
+										<div class="testi-meta">
+											{{ x.writer }}
+											<span>{{ x.client_name }}.</span>
+										</div>
+									</div>
+								</div>
+                                {% endif %}
+                                {% endfor %}
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section><!-- #content end -->
+
+
+{% endblock content %}

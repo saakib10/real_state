@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section id="page-title" class="page-title-parallax page-title-dark include-header" style="padding: 250px 0; background-image: url('/images/project/project.jpg'); background-size: cover; background-position: center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
+
+    <div class="container clearfix">
+        <h1>PROJECTS</h1>
+    </div>
+
+</section><!-- #page-title end -->
+
+<div class="row m-5">
+    <select class="col-sm-5 status-id">
+        {% for x in status %}
+            <option class="status-value" value="{{ x.id }}">{{ x.name }}</option>
+        {% endfor %}
+    </select>
+
+
+
+    <form class="form-inline my-2 my-lg-0 col-md-4" style="display: flex;">
+        <input id="inputDatabaseName" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" >
+        <div class="search-result">
+        </div>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <div class="wrapper">
+        <div class="search-input">
+          <a href="" target="_blank" hidden></a>
+          <input type="text" placeholder="Type to search..">
+          <ul class="autocom-boxx">
+            <!-- here list are inserted from javascript -->
+          </ul>
+          <div class="icon"><i class="fas fa-search"></i></div>
+        </div>
+      </div>
+
+<div class="project-data row portfolio row g-0 portfolio-reveal"></div>
+
+<section id="container">
+    
+    <div class="content-wrap">
+        <div id="portfolio project-data" class="portfolio row g-0 portfolio-reveal grid-container project-data">
+            
+        </div>
+    </div>
+</section> 
+
+
+{% endblock content %}
+
+
+{% block script %}
+    <script>
+        $('.status-id').on('change', function() {
+            $('.project-data').html(null)
+            let status = this.value
+            $.ajax({
+                url: '{% url "status" %}',
+                type: 'GET',
+                data : {
+                        status: parseInt(status)
+                },
+                success: function(resp){
+                    resp.data.forEach(x => {
+                        console.log(x)
+                        $(`<article class="portfolio-item col-6 col-md-4 col-lg-3 pf-media">
+                                <div class="grid-inner">
+                                    <div class="portfolio-image">
+                                        <a href="/project/${ x.id }/">
+                                            <img src="/images/${ x.feature_image }" alt="Open Imagination">
+                                        </a>
+                                        <div class="bg-overlay">
+                                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+
+                                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-desc">
+                                        <a href="/project/${ x.id }/">
+                                            <h3>${ x.name }</h3>
+                                            <span>${ x.address }</span>
+                                        </a>
+                                        <a href="/project/${ x.id }/" class="button button-border button-rounded button-large ms-0 topmargin-sm">DETAILS</a>
+                                    </div>
+                                </div>
+                            </article>`).appendTo($('.project-data'))
+                    
+                    });
+                    }, 
+                error: function(resp){
+                    console.log('Something went wrong');
+                }
+            });
+        });
+        $('#inputDatabaseName').on('input',function(e){
+            $('.search-result').html(null)
+            let value = $('#inputDatabaseName').val()
+            console.log(value)
+            $.ajax({
+                url: '{% url "search" %}',
+                type: 'GET',
+                data : {
+                        name: value                },
+                success: function(resp){
+                    resp.data.forEach(data => {
+                        $(`<a href="/project/${ data.id }/">${ data.name }</a> `).appendTo($('.search-result'))
+                    })
+                    }, 
+                error: function(resp){
+                    console.log('Something went wrong');
+                }
+            });
+            
+        });
+        const searchWrapper = document.querySelector(".search-input");
+        const inputBox = searchWrapper.querySelector("input");
+        const suggBox = searchWrapper.querySelector(".autocom-box");
+        const icon = searchWrapper.querySelector(".icon");
+        let linkTag = searchWrapper.querySelector("a");
+        let webLink;
+
+        // if user press any key and release
+        inputBox.onkeyup = (e)=>{
+            $('.autocom-boxx').html(null)
+            let userData = e.target.value; //user enetered data
+            if(userData){
+                $.ajax({
+                    url: '{% url "search" %}',
+                    type: 'GET',
+                    data : {
+                            name: userData                },
+                    success: function(resp){
+                        resp.data.forEach(data => {
+                            console.log(data)
+                            $(`<li><a href="/project/${ data.id }/">${ data.name }</a></li>`).appendTo($('.autocom-boxx'))
+                        })
+                        }, 
+                    error: function(resp){
+                        console.log('Something went wrong');
+                    }
+                });
+            }else{
+                searchWrapper.classList.remove("active"); //hide autocomplete box
+            }
+        }
+        
+       
+    </script>
+{% endblock script %}
+

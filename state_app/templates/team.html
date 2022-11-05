@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Page Title
+		============================================= -->
+		<section id="page-title" class="page-title-parallax page-title-dark include-header" style="padding: 250px 0; background-image: url('/images/project/team.jpeg'); background-size: cover; background-position: center center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
+
+			<div class="container clearfix">
+				<h1>Team</h1>
+			</div>
+			
+
+		</section><!-- #page-title end -->
+
+  <section id="content">
+    <div class="content-wrap">
+      <div class="container clearfix">
+        <div class="line"></div>
+      <div class="heading-block center">
+  
+        <h2>OUR TEAM</h2>
+      </div>
+      <div class="line"></div>
+  
+      <div class="container">
+        <img src="/images/project/team-photo2.jpg" alt="team">
+      </div>
+      <div class="line"></div>
+  
+      <div class="heading-block center">
+          <h4>Our Team Members who have contributed immensely to our Growth</h4>
+      </div>
+  
+      <div class="row col-mb-50 mb-0">
+        {% for x in employee %}
+        <div class="col-lg-6">
+          <div class="team team-list row align-items-center">
+            <div class="team-image col-sm-6">
+              <img src="{{ x.imagesURL }}" alt="John Doe">
+            </div>
+            <div class="team-desc col-sm-6">
+              <div class="team-title"><h4>{{ x.name }}</h4><span>{{ x.designation }}</span></div>
+              <div class="team-content">
+                <p>{{ x.description }}</p>
+              </div>
+              <a href="{{ x.flink }}" class="social-icon si-rounded si-small si-light si-facebook">
+                <i class="icon-facebook"></i>
+                <i class="icon-facebook"></i>
+              </a>
+              <a href="{{ x.t_link }}" class="social-icon si-rounded si-small si-light si-twitter">
+                <i class="icon-twitter"></i>
+                <i class="icon-twitter"></i>
+              </a>
+              <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
+                <i class="icon-gplus"></i>
+                <i class="icon-gplus"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      </div>
+    </div>
+    
+		
+
+</section>
+
+{% endblock content %}

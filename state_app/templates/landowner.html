@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block link %}
+
+<link rel="stylesheet" href="{% static 'css/components/bs-select.css' %}" type="text/css" />
+
+<style>
+
+	.white-section {
+		background-color: #FFF;
+		padding: 25px 20px;
+		-webkit-box-shadow: 0px 1px 1px 0px #dfdfdf;
+		box-shadow: 0px 1px 1px 0px #dfdfdf;
+		border-radius: 3px;
+	}
+
+	.white-section label {
+		display: block;
+		margin-bottom: 15px;
+	}
+
+	.white-section pre { margin-top: 15px; }
+
+	.dark .white-section {
+		background-color: #111;
+		-webkit-box-shadow: 0px 1px 1px 0px #444;
+		box-shadow: 0px 1px 1px 0px #444;
+	}
+
+	</style>
+
+{% endblock link %}
+
+{% block content %}
+
+<!-- Page Title
+		============================================= -->
+		<section id="page-title" class="page-title-parallax page-title-dark include-header" style="padding: 250px 0; background-image: url('/images/project/landowner.jpg'); background-size: cover; background-position: center center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
+
+			<div class="container clearfix">
+				<h1>LANDOWNER</h1>
+			</div>
+
+		</section><!-- #page-title end -->
+
+        <section id="page-title">
+            <div class="container">
+                <div class="row align-items-center col-mb-50">
+                    <div class="col-md-6">
+                        <img src="/images/project/side4.jpg" alt="">
+                    </div>
+    
+                    <div class="col-md-6 text-center text-md-start">
+                        <div class="heading-block border-bottom-0">
+                            <h4>BUILD YOUR HOUSE WITH CREDIBILITY</h4>
+                        </div>
+    
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quod consequuntur quibusdam, enim expedita sed quia nesciunt incidunt accusamus necessitatibus modi adipisci officia libero accusantium esse hic, obcaecati, ullam, laboriosam!</p>
+    
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti vero, animi suscipit id facere officia. Aspernatur, quo, quos nisi dolorum aperiam fugiat deserunt velit rerum laudantium cum magnam excepturi quod.</p>
+    
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="content">
+            <div class="content-wrap">
+                <div class="container clearfix mb-5" style="width: 100%;" >
+                    <h1>BOOK AN APPOINTMENT</h1>
+                    
+                </div>
+                <div class="container clearfix">
+                    <div class="row">
+                        <div class="form-widget">
+                
+                            <div class="form-result"></div>
+        
+                            <!-- Contact Form
+                            ============================================= -->
+                            <form id="register-form" name="register-form" class="row" action="#" method="post">
+    
+                                <h4>Your Valued Interest & Preferences</h4>
+        
+                                <div class="col-4 form-group">
+                                    <input type="text" id="register-form-name" name="register-form-name" value="" class="form-control" placeholder="Locality"/>
+                                </div>
+        
+                                <div class="col-4 form-group">
+                                    <input type="text" id="register-form-email" name="register-form-email" value="" class="form-control" placeholder="Address"/>
+                                </div>
+        
+                                <div class="col-4 form-group">
+                                    <input type="text" id="register-form-name" name="register-form-name" value="" class="form-control" placeholder="Size Of Katha"/>
+                                </div>
+    
+                                <div class="col-4 form-group">
+                                    <input type="text" id="register-form-name" name="register-form-name" value="" class="form-control" placeholder="Width Of The Road(In Front)"/>
+                                </div>
+
+                                <div class="col-4 form-group">
+                                    <div class="white-section" style="padding: 0px;">
+                                        <select class="selectpicker show-tick">
+                                            <option value="">Select Facing</option>
+                                            <option value="east">East</option>
+                                            <option value="west">West</option>
+                                            <option value="north">North</option>
+                                            <option value="south">South</option>
+            
+                                            </select>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 form-group">
+                                    <div class="white-section" style="padding: 0px;">
+                                        <select class="selectpicker show-tick">
+                                            <option value="">Select Category</option>
+                                            <option value="commercial">Commercial</option>
+                                            <option value="residencial">Residencial</option>
+                                            </select>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 form-group">
+                                    <div class="white-section" style="padding: 0px;">
+                                        <select class="selectpicker show-tick">
+                                            <option value="">Select Attractive Feature</option>
+                                            <option value="Park Side">Park Side</option>
+                                        <option value="Shopping Mall">Near Shopping Mall</option>
+                                            </select>
+                                        </select>
+                                    </div>
+                                </div>
+        
+                                <h4>Landowner Informations </h4>
+        
+                                <div class="col-4 form-group">
+                                    <input type="text" id="register-form-name" name="register-form-name" value="" class="form-control" placeholder="Name"/>
+                                </div>
+        
+                                <div class="col-4 form-group">
+                                    <input type="email" id="register-form-name" name="register-form-name" value="" class="form-control" placeholder="Email"/>
+                                </div>
+        
+                                <div class="col-4 form-group">
+                                    <input type="text" id="register-form-email" name="register-form-email" value="" class="form-control" placeholder="Contact Number"/>
+                                </div>
+                                <div class="col-4 form-group">
+                                    <input type="text" id="register-form-name" name="register-form-name" value="" class="form-control" placeholder="Address"/>
+                                </div>
+        
+                                <div class="col-12 form-group">
+                                    <button class="button button-border button-rounded button-large ms-0 topmargin-sm" id="register-form-submit" name="register-form-submit" type="submit">SUBMIT</button>
+                                </div>
+        
+                            </form>
+        
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </section>
+
+{% endblock content %}
+
+{% block script %}
+
+<!-- Bootstrap Select Plugin -->
+<script src="{% static 'js/components/bs-select.js' %}"></script>
+
+<!-- Select Splitter Plugin -->
+<script src="{% static 'js/components/selectsplitter.js' %}"></script>
+
+<script>
+
+    $('.selectsplitter').selectsplitter();
+
+</script>
+
+{% endblock script %}

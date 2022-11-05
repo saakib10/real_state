@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section id="page-title" class="page-title-parallax page-title-dark include-header" style="padding: 250px 0; background-image: url('/images/project/project.jpg'); background-size: cover; background-position: center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
+
+    <div class="container clearfix">
+        <h1>PROJECTS</h1>
+    </div>
+
+</section><!-- #page-title end -->
+
+<section id="container">
+    
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <div class="grid-filter-wrap align-items-center justify-content-center">
+                <!-- Grid Filter
+                ============================================= -->
+                <ul class="grid-filter me-4" data-container="#portfolio">
+                    <li class="activeFilter"><a href="#" data-filter="*">ALL</a></li>
+                    <li><a href="#" data-filter=".Residencial">RECIDENCIAL</a></li>
+                    <li><a href="#" data-filter=".Commercial">COMMERCIAL</a></li>
+                </ul><!-- .grid-filter end -->
+                <!-- <div class="grid-shuffle rounded">
+                    <i class="icon-random"></i>
+                </div> -->
+
+            </div>
+        </div>
+        
+        <div id="portfolio" class="portfolio row g-0 portfolio-reveal grid-container">
+            {% for x in projects %}
+            <article class="portfolio-item col-6 col-md-4 col-lg-3 pf-media {{ x.type }}">
+                <div class="grid-inner">
+                    <div class="portfolio-image">
+                        <a href="{% url 'project_view' x.id %}">
+                            <img src="{{ x.feature_image.url }}" alt="Open Imagination">
+                        </a>
+                        <div class="bg-overlay">
+                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+
+                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-desc">
+                        <a  href="{% url 'project_view' x.id %}">
+                            <h3>{{ x.name }}</h3>
+                            <span>{{ x.address }}</span>
+                        </a>
+                        
+                        <a href="{% url 'project_view' x.id %}" class="button button-border button-rounded button-large ms-0 topmargin-sm">DETAILS</a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+
+            <!-- <article class="portfolio-item col-6 col-md-4 col-lg-3 pf-illustrations">
+                <div class="grid-inner">
+                    <div class="portfolio-image">
+                        <a href="portfolio-single.html">
+                            <img src="/images/project/p2.jpg" alt="Locked Steel Gate">
+                        </a>
+                        <div class="bg-overlay">
+                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item">
+                                                                    </div>
+                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-desc">
+                        <a  href="project_view.html">
+                            <h3>Aline Hena</h3>
+                            <span>Shyamoli</span>
+                        </a>
+                        
+                        <a href="project_view.html" class="button button-border button-rounded button-large ms-0 topmargin-sm">DETAILS</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="portfolio-item col-6 col-md-4 col-lg-3 pf-graphics pf-uielements">
+                <div class="grid-inner">
+                    <div class="portfolio-image">
+                        <a href="#">
+                            <img src="/images/project/p3.jpg" alt="Mac Sunglasses">
+                        </a>
+                        <div class="bg-overlay">
+                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item">
+                                                                </div>
+                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-desc">
+                        <a  href="project_view.html">
+                            <h3>Aline Jessy</h3>
+                            <span>Shyamoli</span>
+                        </a>
+                        
+                        <a href="project_view.html" class="button button-border button-rounded button-large ms-0 topmargin-sm">DETAILS</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="portfolio-item col-6 col-md-4 col-lg-3 pf-icons pf-illustrations">
+                <div class="grid-inner">
+                    <div class="portfolio-image">
+                        <a href="portfolio-single.html">
+                            <img src="/images/project/p4.jpg" alt="Open Imagination">
+                        </a>
+                        <div class="bg-overlay" data-lightbox="gallery">
+                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item">
+                            
+                            </div>
+                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-desc">
+                        <a  href="project_view.html">
+                            <h3>Aline Arun Ava</h3>
+                            <span>Kafrul</span>
+                        </a>
+                        
+                        <a href="project_view.html" class="button button-border button-rounded button-large ms-0 topmargin-sm">DETAILS</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="portfolio-item col-6 col-md-4 col-lg-3 pf-uielements pf-media">
+                <div class="grid-inner">
+                    <div class="portfolio-image">
+                        <a href="portfolio-single.html">
+                            <img src="/images/project/p5.jpg" alt="Console Activity">
+                        </a>
+                        <div class="bg-overlay">
+                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item">
+                                                                    </div>
+                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-desc">
+                        <a  href="project_view.html">
+                            <h3>Aline Nurunnahar</h3>
+                            <span>Baridhara</span>
+                        </a>
+                        
+                        <a href="project_view.html" class="button button-border button-rounded button-large ms-0 topmargin-sm">DETAILS</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="portfolio-item col-6 col-md-4 col-lg-3 pf-graphics pf-illustrations">
+                <div class="grid-inner">
+                    <div class="portfolio-image">
+                        <a href="portfolio-single.html">
+                            <img src="/images/project/p6.jpg" alt="Open Imagination">
+                        </a>
+                        <div class="bg-overlay" data-lightbox="gallery">
+                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item">
+                        
+                            </div>
+                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-desc">
+                        <a  href="project_view.html">
+                            <h3>Aline Prothoma</h3>
+                            <span>Kafrul</span>
+                        </a>
+                        
+                        <a href="project_view.html" class="button button-border button-rounded button-large ms-0 topmargin-sm">DETAILS</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="portfolio-item col-6 col-md-4 col-lg-3 pf-uielements pf-icons">
+                <div class="grid-inner">
+                    <div class="portfolio-image">
+                        <a href="portfolio-single-video.html">
+                            <img src="/images/project/p1.jpg" alt="Backpack Contents">
+                        </a>
+                        <div class="bg-overlay">
+                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item">
+                        
+                            </div>
+                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-desc">
+                        <a  href="project_view.html">
+                            <h3>Aline Mahanandah</h3>
+                            <span>Baridhara</span>
+                        </a>
+                        
+                        <a href="project_view.html" class="button button-border button-rounded button-large ms-0 topmargin-sm">DETAILS</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="portfolio-item col-6 col-md-4 col-lg-3 pf-graphics">
+                <div class="grid-inner">
+                    <div class="portfolio-image">
+                        <a href="portfolio-single.html">
+                            <img src="/images/project/p2.jpg" alt="Sunset Bulb Glow">
+                        </a>
+                        <div class="bg-overlay">
+                            <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item">
+                            
+                            </div>
+                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-desc">
+                        <a  href="project_view.html">
+                            <h3>Aline Glory</h3>
+                            <span>Shymoli</span>
+                        </a>
+                        
+                        <a href="project_view.html" class="button button-border button-rounded button-large ms-0 topmargin-sm">DETAILS</a>
+                    </div>
+                </div>
+            </article> -->
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

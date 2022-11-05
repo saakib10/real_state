@@ -1,0 +1,451 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block link %}
+
+<!-- Real Estate Demo Specific Stylesheet -->
+<link rel="stylesheet" href="{% static 'demos/real-estate/css/font-icons.css' %}" type="text/css" />
+
+
+{% endblock link %}
+
+{% block content %}
+
+
+	<section id="page-title">
+
+		<div class="container clearfix">
+			<h1>{{ project.name }}</h1>
+			<span>{{ project.address }}</span>
+		</div>
+
+	</section>
+
+	<section id="content">
+		<div class="content-wrap">
+			<div class="section mt-0" style="padding: 30px 0">
+				<div class="container clearfix">
+
+					<div class="row">
+						
+						<div class="col-md-2 col-6 center">
+							<i class="icon-realestate-building i-plain i-xlarge mx-auto mb-0"></i>
+							<h5 class="my-1">{{ project.type }}</h5>
+						</div>
+						<div class="col-md-2 col-6 center">
+							<i class="icon-realestate-building-crane i-plain i-xlarge mx-auto mb-0"></i>
+							<h5 class="my-1">{{ project.status }}</h5>
+						</div>
+						<div class="col-md-2 col-6 center">
+							<i class="icon-realestate-plan2 i-plain i-xlarge mx-auto mb-0"></i>
+							<h5 class="my-1">{{ project.size_of_apartment }}</h5>
+						</div>
+						
+						<div class="col-md-2 col-6 center">
+							<i class="icon-realestate-garage2 i-plain i-xlarge mx-auto mb-0"></i>
+							<h5 class="my-1">{{ project.parking }}</h5>
+						</div>
+						{% if project.start_date %}
+						<div class="col-md-2 col-6 center">
+							<i class="icon-line-calendar i-plain i-xlarge mx-auto mb-0"></i>
+							<h5 class="my-1">{{ project.start_date }}</h5>
+						</div>
+						{% endif %}
+						{% if project.end_date %}
+						<div class="col-md-2 col-6 center">
+							<i class="icon-line-calendar i-plain i-xlarge mx-auto mb-0"></i>
+							<h5 class="my-1">{{ project.end_date }}</h5>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="container clearfix">
+				<div class="row specifications">
+					<div class="col-sm-7">
+						<h4 class="mb-0 topmargin">Overview</h4>
+						<div class="line line-sm mt-1 mb-3"></div>
+						<div class="overview">
+							<p>The interior of the house is focused around a large central hallway serving as the
+								main avenue of traffic and entrance area to the adjacent rooms. The hallway flows
+								into a large, wide staircase that provides the main means of egress.
+
+								On the south side of the hall is the large front parlor. This room contains original
+								wallpaper including ceiling panels of small birds and orange flowers with vibrant
+								leaves of green and yellow set upon a light blue background. The main body of the
+								wallpaper is shades.</p>
+
+						</div>
+						<h4 class="mb-0 topmargin">Sepicification</h4>
+						<div class="line line-sm mt-1 mb-3"></div>
+						<div class="specific">
+							<div class="row clearfix">
+								<div class="col-md-6">
+									<ul class="iconlist">
+										<li class="mb-1"><i class="icon-line2-check"></i><b>Construction year:</b> &emsp;{{ project.start_date }}
+										</li>
+										<li class="mb-1"><i class="icon-line2-check"></i><b>Apartment Size:</b> &emsp;{{ project.size_of_apartment }}</li>
+										<li class="mb-1"><i class="icon-line2-check"></i><b>Facing :</b> &emsp;{{ project.facing }}</li>
+										<li class="mb-1"><i class="icon-line2-check"></i><b>Apartments:</b> &emsp;{{ project.apartment }}</li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul class="iconlist">
+										<li class="mb-1"><i class="icon-line2-check"></i><b>Basements:</b> &emsp;{{ project.basement }}</li>
+										<li class="mb-1"><i class="icon-line2-check"></i><b>Razuk Number:</b> &emsp;{{ project.razuk_no }}</li>
+										<li class="mb-1"><i class="icon-line2-check"></i><b>Car Parking:</b> &emsp;{{ project.parking }}</li>
+										<li class="mb-1"><i class="icon-line2-check"></i><b>Total Floors:</b> &emsp;{{ project.floor }}</li>
+									</ul>
+								</div>
+								<!-- <div class="col-md-4">
+									<ul class="iconlist">
+										<li class="mb-1"><i class="icon-line2-check"></i>Kitchens: 1</li>
+										<li class="mb-1"><i class="icon-line2-check"></i>Garages: </li>
+										<li class="mb-1"><i class="icon-line2-check"></i>Pools: 2</li>
+										<li class="mb-1"><i class="icon-line2-check"></i>Insurance: Yes</li>
+									</ul>
+								</div> -->
+							</div>
+						</div>
+
+					</div>
+					<div class="col-sm-5 mt-5">
+						<div class="position-relative overflow-hidden">
+							{% for x in images %}
+							{% if forloop.counter == 5 %}
+							<img src="{{ x.image.url }}" data-animate="fadeInUp" data-delay="100" alt="Chrome"
+								class="fadeInUp animated">
+							{% endif %}
+							{% endfor %}
+							<!-- <img src="images/project/pr3.jpg" style="top: 0; left: 0; min-width: 100%; min-height: 100%;" data-animate="fadeInUp" data-delay="400" alt="iPhone" class="position-absolute fadeInUp animated"> -->
+						</div>
+					</div>
+				</div>
+				<div class="divider divider-center">
+					<i class="icon-chevron-down"></i>
+				</div>
+				<div class="row features">
+					<!-- <div class="col-sm-5 mt-5" style="background-image: url('images/project/pr3.jpg');">
+					</div> -->
+
+					<div class="col-lg-5 align-self-end">
+
+						<div class="position-relative overflow-hidden">
+							{% for x in images %}
+							{% if forloop.counter == 7 %}
+							<img src="{{ x.image.url }}" data-animate="fadeInUp" data-delay="100" alt="Chrome"
+								class="fadeInUp animated">
+							{% endif %}
+							{% endfor %}
+							<!-- <img src="images/project/pr3.jpg" style="top: 0; left: 0; min-width: 100%; min-height: 100%;" data-animate="fadeInUp" data-delay="400" alt="iPhone" class="position-absolute fadeInUp animated"> -->
+						</div>
+
+					</div>
+
+					
+					<div class="col-sm-7">
+						{% if features %}
+						<h4 class="mb-0 topmargin">Features</h4>
+						<div class="line line-sm mt-1 mb-3"></div>
+						<div class="row clearfix">
+							{% for x in features %}
+							<div class="col-md-6">
+								<ul class="iconlist">
+									<li class="mb-1"><i class="icon-line2-check"></i>{{ x.feature }}</li>
+								</ul>
+							</div>
+							{% endfor %}
+							<!-- <div class="col-md-4">
+								<ul class="iconlist">
+									<li class="mb-1"><i class="icon-realestate-balcony"></i>Balcony/terrace</li>
+									<li class="mb-1"><i class="icon-realestate-fireplace"></i>Fireplace</li>
+									<li class="mb-1"><i class="icon-realestate-restaurant"></i>Barbeque</li>
+									<li class="mb-1"><i class="icon-realestate-ventilation"></i>Ventilation</li>
+									<li><i class="icon-realestate-shower"></i>Outdoor Shower</li>
+								</ul>
+							</div>
+							<div class="col-md-4">
+								<ul class="iconlist">
+									<li class="mb-1"><i class="icon-realestate-wood"></i>Garden</li>
+									<li class="mb-1"><i class="icon-realestate-barrow"></i>Rural/secluded</li>
+									<li class="mb-1"><i class="icon-realestate-vacuum-cleaner"></i>Microwave</li>
+									<li><i class="icon-realestate-phone2"></i>Intercom</li>
+									<li><i class="icon-realestate-parking"></i>Parking</li>
+								</ul>
+							</div> -->
+						</div>
+						{% else %}
+						<div class="divider divider-center">
+							<i class="icon-chevron-down"></i>
+						</div>
+		
+		
+						<h2 class="mb-0 topmargin text-center">Project Progress</h2>
+						<div class="gutter-40 col-mb-80">
+							<div class="postcontent" style="padding: 4rem;">
+									<div class="mb-5 text-center">
+										<div class="rounded-skill mb-0" style="margin-bottom: 6%;" data-color="#3F729B" data-size="200" data-percent="{{ project.completed_per }}" data-width="3" data-speed="2500">
+											<div class="counter counter-inherit"><span data-from="0" data-to="{{ project.completed_per }}" data-refresh-interval="50" data-speed="2500"></span>% Completed</div>
+										</div>
+									</div>
+							</div><!-- .postcontent end -->
+						</div>
+						{% endif %}
+						
+						<!-- <h4 class="mb-0 topmargin">Additional Features</h4>
+						<div class="line line-sm mt-1 mb-3"></div> -->
+
+					</div>
+					
+					
+
+					
+
+				</div>
+				
+				<div class="divider divider-center">
+					<i class="icon-chevron-down"></i>
+				</div>
+
+				{% if features %}
+				<h2 class="mb-0 topmargin text-center">Project Progress</h2>
+
+				
+				
+				<div class="gutter-40 col-mb-80">
+					<div class="postcontent" style="padding: 4rem;">
+							<div class="mb-5 text-center">
+								<div class="rounded-skill mb-0" style="margin-bottom: 6%;" data-color="#3F729B" data-size="200" data-percent="{{ project.completed_per }}" data-width="3" data-speed="2500">
+									<div class="counter counter-inherit"><span data-from="0" data-to="{{ project.completed_per }}" data-refresh-interval="50" data-speed="2500"></span>% Completed</div>
+								</div>
+							</div>
+					</div><!-- .postcontent end -->
+				</div>
+				<div class="divider divider-center mt-5">
+					<i class="icon-chevron-down"></i>
+				</div>
+				{% endif %}
+
+
+				<div class="tabs tabs-bordered clearfix ui-tabs ui-corner-all ui-widget ui-widget-content" id="tab-2">
+
+					<ul class="tab-nav clearfix ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header" role="tablist">
+						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-5" aria-labelledby="ui-id-5" aria-selected="false" aria-expanded="false"><a href="#tabs-5" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-5">Schedule Tour</a></li>
+						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-6" aria-labelledby="ui-id-6" aria-selected="false" aria-expanded="false"><a href="#tabs-6" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-6">Nearby Institute</a></li>
+						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-7" aria-labelledby="ui-id-7" aria-selected="false" aria-expanded="false"><a href="#tabs-7" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-7">Architecher</a></li>
+						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-8" aria-labelledby="ui-id-8" aria-selected="false" aria-expanded="false"><a href="#tabs-8" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-8">Location</a></li>
+						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-9" aria-labelledby="ui-id-9" aria-selected="false" aria-expanded="false"><a href="#tabs-9" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-9">Floor Map</a></li>
+					</ul>
+
+					<div class="tab-container">
+
+						<div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-5" aria-labelledby="ui-id-5" role="tabpanel" aria-hidden="true" style="display: none;">
+							<div class="schedule-meeting">
+						
+								<form id="register-form" name="register-form" class="row" action="#" method="post">
+
+									<div class="col-6 form-group">
+										<input type="date" value="2018-07-22" id="register-form-date" name="register-form-name" value="" class="form-control" placeholder="Date"/>
+									</div>
+		
+									<div class="col-6 form-group">
+										<input type="time" value="10 am" id="register-form-time" value="" class="form-control" placeholder="Time"/>
+									</div>
+		
+									<div class="col-4 form-group">
+										<input type="text" id="register-form-name" name="register-form-name" value="" class="form-control" placeholder="Name"/>
+									</div>
+		
+									<div class="col-4 form-group">
+										<input type="email" id="register-form-email" name="register-form-email" value="" class="form-control" placeholder="Email"/>
+									</div>
+		
+									<div class="col-4 form-group">
+										<input type="text" id="register-form-username" name="register-form-username" value="" class="form-control" placeholder="Contact Number"/>
+									</div>
+		
+									<div class="col-12 form-group">
+										<textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30" placeholder="Message"></textarea>
+									</div>
+		
+									<div class="col-12 form-group center">
+										<button class="button button-border button-rounded button-fill fill-from-bottom button-black"><span>SEND</span></button>
+									</div>
+		
+								</form>
+		
+							</div>
+						</div>
+						<div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-6" aria-labelledby="ui-id-6" role="tabpanel" aria-hidden="true" style="display: none;">
+							<div class="row near-palce">
+								<div class="col-sm-12">
+									<p><b>School</b></p>
+								</div>
+								{% for x in institute %}
+								{% if x.category == "School" %}
+								<div class="row">
+									<div class="col-sm-6">
+										<small>{{ x.category }}</small>
+									</div>
+									<div class="col-sm-6 right">
+										<small>{{x.distance }}</small>
+										
+									</div>
+								</div>
+								{% endif %}
+								{% endfor %}
+								
+							</div>
+						</div>
+						<div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-7" aria-labelledby="ui-id-7" role="tabpanel" aria-hidden="true" style="display: none;">
+							<div class="architect-details">
+								<div class="architect-profile text-justify">
+									<h4>Atchitect Profile</h4>
+									<p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem ullam aliquid quos, tempore, quibusdam saepe numquam fugiat ab perspiciatis minima itaque in repellendus ad, modi voluptates quas distinctio iusto nesciunt. Esse, maxime dolorem distinctio quibusdam doloribus reiciendis sint obcaecati ex impedit ea non nam eos voluptate quod recusandae provident, unde libero, vel laudantium hic a. Ea amet, maxime voluptatibus distinctio temporibus libero cupiditate deserunt, facere rem, alias similique mollitia possimus asperiores cum harum at doloribus sed voluptas ipsam. Accusamus adipisci at sint voluptas unde deserunt incidunt excepturi perferendis quae similique laudantium voluptatibus quo sed perspiciatis autem quis hic, aut pariatur iste aliquid, veniam suscipit doloribus aliquam praesentium.</p>
+								</div>
+								<div class="architect-profile mt-5">
+									<h4>Atchitect Message</h4>
+									<p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem ullam aliquid quos, tempore, quibusdam saepe numquam fugiat ab perspiciatis minima itaque in repellendus ad, modi voluptates quas distinctio iusto nesciunt. Esse, maxime dolorem distinctio quibusdam doloribus reiciendis sint obcaecati ex impedit ea non nam eos voluptate quod recusandae provident, unde libero, vel laudantium hic a. Ea amet, maxime voluptatibus distinctio temporibus libero cupiditate deserunt, facere rem, alias similique mollitia possimus asperiores cum harum at doloribus sed voluptas ipsam. Accusamus adipisci at sint voluptas unde deserunt incidunt excepturi perferendis quae similique laudantium voluptatibus quo sed perspiciatis autem quis hic, aut pariatur iste aliquid, veniam suscipit doloribus aliquam praesentium.</p>
+								</div>
+								
+							</div>
+						</div>
+						<div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-8" aria-labelledby="ui-id-8" role="tabpanel" aria-hidden="false" style="display: block;">
+							<img src="/images/project/map.png" alt="map">
+						</div>
+						
+						<div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-9" aria-labelledby="ui-id-8" role="tabpanel" aria-hidden="false" style="display: block;">
+							<div class="dropdown-details">
+								<div class="accordion" id="accordionExample">
+									
+									<div class="accordion-item">
+									  <h2 class="accordion-header border-box accordion-active" id="headingOne">
+										<button class="accordion-button shadow-collapse collapsed" style="box-shadow: none !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+										  
+										</button>
+									  </h2>
+									  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+										<div class="accordion-body">
+										  <img src="" alt="floor1">
+										  <div></div>
+										</div>
+									  </div>
+									</div>
+									
+									{% for x in floor %}
+									<div class="accordion-item">
+									  <h2 class="accordion-header border-box" id="headingTwo">
+										<button class="accordion-button collapsed shadow-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										  {{ x.name }}
+										</button>
+									  </h2>
+									  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<img src="{{ x.image.url }}" alt="floor1">
+											
+											<div>{{ x.description }}</div>
+										</div>
+									  </div>
+									</div>
+									{% endfor %}
+									<div class="accordion-item">
+									  <h2 class="accordion-header border-box" id="headingThree">
+										<button class="accordion-button collapsed shadow-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										  Third Floor
+										</button>
+									  </h2>
+									  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<img src="images/project/floor1.jpg" alt="floor1">
+											<div>over 8,000 square feet, perched over 1,100 feet in the air with absolutely breathtaking panoramic 360-degree views of all of New York City and the surrounding tri-state area, The 82nd Floor at 432 Park Avenue has been completely reimagined by one of the most sought-after design houses in London and represents an utterly unique opportunity to own a globally significant property. The residence is comprised of 5 bedrooms, 2 master bathrooms, 4 on-suite guest bathrooms, 2 powder rooms, 2 offices, 2 dressing rooms, a media room, an oversized eat-in gourmet chef's kitchen, and a sprawling 1,100 square-foot Great Room perfectly situated in the prime southwest corner of the floor.</div>
+										</div>
+									  </div>
+									</div>
+								  </div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+				
+
+
+				<div class="divider divider-center">
+					<i class="icon-chevron-down"></i>
+				</div>
+
+				<div class="w-100">
+					
+					{% if images %}
+					<h4>Images</h4>
+
+					<div class="masonry-thumbs grid-container grid-4 has-init-isotope" data-big="4" data-lightbox="gallery" style="position: relative; height: 731.601px;">
+						{% for x in images %}
+						<a class="grid-item" href="{{ x.image.url }}" data-lightbox="gallery-item" style="position: absolute; left: 0%; top: 0px;"><img src="{{ x.image.url }}" alt="Gallery Thumb 1"></a>
+						{% endfor %}
+					</div>
+					{% endif %}
+				</div>
+
+
+				<div class="divider divider-center">
+					<i class="icon-chevron-down"></i>
+				</div>
+
+
+				<div class="w-100">
+					
+					{% if projects %}
+					<h4>Related Products</h4>
+
+					<div class="owl-carousel product-carousel carousel-widget owl-loaded owl-drag" data-margin="30"
+						data-pagi="false" data-autoplay="5000" data-items-xs="1" data-items-md="2" data-items-lg="3"
+						data-items-xl="4">
+
+						<div class="owl-stage-outer">
+							<div class="owl-stage" style="transform: translate3d(-286px, 0px, 0px); transition: all 0.25s ease 0s; width: 1433px;">
+								{% for x in projects %}
+
+								<div class="owl-item active" style="width: 256.5px; margin-right: 30px;">
+									<div class="oc-item">
+										<div class="product">
+											<div class="grid-inner text-center">
+												<div class="product-image">
+													<a href="{% url 'project_view' x.id %}"><img src="{{ x.feature_image.url }}" alt="#"></a>
+													<div class="bg-overlay">
+														<div class="bg-overlay-content dark flex-column" data-hover-animate="fadeIn">
+															<a href="{% url 'project_view' x.id %}" class="portfolio-desc pt-0 center" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350">
+																<h3>{{ x.name }}</h3>
+																<span>{{x.address }}</span>
+															</a>
+															<div class="d-flex">
+																
+															</div>
+														</div>
+														<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
+									class="icon-angle-left"></i></button><button type="button" role="presentation"
+								class="owl-next disabled"><i class="icon-angle-right"></i></button></div>
+						<div class="owl-dots disabled"></div>
+					</div>
+					{% endif %}
+
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+
+{% endblock content %}

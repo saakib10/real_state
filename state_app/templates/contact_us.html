@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Page Title
+		============================================= -->
+		<section id="page-title" class="page-title-parallax page-title-dark include-header" style="padding: 250px 0; background-image: url('/images/project/contact.jpg'); background-size: cover; background-position: center center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
+
+			<div class="container clearfix">
+				<h1>CONTACT US</h1>
+			</div>
+
+		</section><!-- #page-title end -->
+
+        <section id="page-title">
+            <div class="container">
+				<div class="border-top-0 m-0">
+					<div class="container text-center">
+
+						<div class="heading-block center">
+							<h2>We're always eager to hear from you!</h2>
+							<span>Sub-Title for the Heading Block</span>
+						</div>
+					</div>
+				</div>
+
+                <div class="row col-mb-50">
+					<div class="col-sm-6 col-lg-4">
+						<div class="feature-box fbox-center fbox-bg fbox-plain">
+							<div class="fbox-icon">
+								<a href="#"><i class="icon-map-marker2"></i></a>
+							</div>
+							<div class="fbox-content">
+								<h3>Our Headquarters<span class="subtitle">Melbourne, Australia</span></h3>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-lg-4">
+						<div class="feature-box fbox-center fbox-bg fbox-plain">
+							<div class="fbox-icon">
+								<a href="#"><i class="icon-phone3"></i></a>
+							</div>
+							<div class="fbox-content">
+								<h3>Speak to Us<span class="subtitle">(123) 456 7890</span></h3>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-lg-4">
+						<div class="feature-box fbox-center fbox-bg fbox-plain">
+							<div class="fbox-icon">
+								<a href="#"><i class="icon-email"></i></a>
+							</div>
+							<div class="fbox-content">
+								<h3>Reach With Email<span class="subtitle">info@build.com</span></h3>
+							</div>
+						</div>
+					</div>
+				</div><!-- Contact Info End -->
+				<div class="line"></div>
+
+
+				<div class="container clearfix">
+					<div class="container clearfix center">
+						<h3>OUR LOCATION</h3>
+					</div>
+					<img src="/images/project/map.png" alt="map">
+				</div>
+
+                <div class="row">
+					
+                    <div class="col-md-8">
+						<div class="container clearfix center mt-5">
+							<h3>MESSAGE US</h3>
+						</div>
+					
+						<form id="register-form" name="register-form" class="row" action="#" method="post">
+
+							<div class="col-4 form-group">
+								<input type="text" id="register-form-name" name="register-form-name" value="" class="form-control" placeholder="Name"/>
+							</div>
+
+							<div class="col-4 form-group">
+								<input type="email" id="register-form-email" name="register-form-email" value="" class="form-control" placeholder="Email"/>
+							</div>
+
+							<div class="col-4 form-group">
+								<input type="number" id="register-form-username" name="register-form-phone" value="" class="form-control" placeholder="Contact Number"/>
+							</div>
+
+							<div class="col-12 form-group">
+								<textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30" placeholder="Message"></textarea>
+							</div>
+
+							<div class="col-12 form-group center">
+								<button type="submit" class="button button-border button-rounded button-large ms-0 topmargin-sm">SEND</button>
+							</div>
+
+						</form>
+
+					</div>
+					<div class="sidebar col-md-4" style="padding: 8%;" >
+
+						<address>
+							<strong>Headquarters:</strong><br>
+							795 Folsom Ave, Suite 600<br>
+							San Francisco, CA 94107<br>
+						</address>
+						<abbr title="Phone Number"><strong>Phone:</strong></abbr> (1) 8547 632521<br>
+						<abbr title="Fax"><strong>Fax:</strong></abbr> (1) 11 4752 1433<br>
+						<abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
+
+						
+
+						<div class="widget border-0 pt-0">
+
+							<a href="#" class="social-icon si-small si-dark si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-dark si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-dark si-gplus">
+								<i class="icon-gplus"></i>
+								<i class="icon-gplus"></i>
+							</a>
+
+						</div>
+
+					</div>
+
+				</div>
+                    
+            </div>
+
+        </section>
+
+{% endblock content %}
